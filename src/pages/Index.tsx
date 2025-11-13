@@ -7,13 +7,12 @@ import Icon from '@/components/ui/icon';
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
   
-  const storageData = {
-    total: 100,
-    used: 45,
-    documents: 15,
-    images: 20,
-    videos: 8,
-    other: 2
+  const serverData = {
+    totalCapacity: 200,
+    activeServers: 48,
+    locations: 12,
+    uptime: 99.9,
+    datacenters: 8
   };
 
   const plans = [
@@ -97,49 +96,46 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-8 mt-16">
             <Card className="p-8 hover:shadow-xl hover:scale-105 transition-all duration-300">
               <div className="flex items-center gap-3 mb-6">
-                <Icon name="HardDrive" size={28} className="text-primary" />
-                <h2 className="text-2xl font-semibold">Использование хранилища</h2>
+                <Icon name="Server" size={28} className="text-primary" />
+                <h2 className="text-2xl font-semibold">Наша инфраструктура</h2>
               </div>
               
               <div className="space-y-6">
-                <div>
-                  <div className="flex justify-between mb-2">
-                    <span className="text-sm font-medium">Занято</span>
-                    <span className="text-sm font-bold text-primary">{storageData.used} ГБ из {storageData.total} ГБ</span>
-                  </div>
-                  <Progress value={storageData.used} max={storageData.total} className="h-3" />
+                <div className="text-center p-6 rounded-lg bg-primary/10">
+                  <div className="text-5xl font-bold text-primary mb-2">{serverData.totalCapacity} ТБ</div>
+                  <p className="text-sm text-muted-foreground">Общая ёмкость серверов</p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 pt-4">
                   <div className="flex items-center gap-3 p-3 rounded-lg bg-secondary/50">
-                    <Icon name="FileText" size={20} className="text-primary" />
+                    <Icon name="Server" size={20} className="text-primary" />
                     <div>
-                      <p className="text-xs text-muted-foreground">Документы</p>
-                      <p className="font-semibold">{storageData.documents} ГБ</p>
+                      <p className="text-xs text-muted-foreground">Активные серверы</p>
+                      <p className="font-semibold">{serverData.activeServers}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center gap-3 p-3 rounded-lg bg-secondary/50">
-                    <Icon name="Image" size={20} className="text-primary" />
+                    <Icon name="MapPin" size={20} className="text-primary" />
                     <div>
-                      <p className="text-xs text-muted-foreground">Изображения</p>
-                      <p className="font-semibold">{storageData.images} ГБ</p>
+                      <p className="text-xs text-muted-foreground">Локации</p>
+                      <p className="font-semibold">{serverData.locations}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center gap-3 p-3 rounded-lg bg-secondary/50">
-                    <Icon name="Video" size={20} className="text-primary" />
+                    <Icon name="Database" size={20} className="text-primary" />
                     <div>
-                      <p className="text-xs text-muted-foreground">Видео</p>
-                      <p className="font-semibold">{storageData.videos} ГБ</p>
+                      <p className="text-xs text-muted-foreground">Дата-центры</p>
+                      <p className="font-semibold">{serverData.datacenters}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center gap-3 p-3 rounded-lg bg-secondary/50">
-                    <Icon name="Folder" size={20} className="text-primary" />
+                    <Icon name="Activity" size={20} className="text-primary" />
                     <div>
-                      <p className="text-xs text-muted-foreground">Другое</p>
-                      <p className="font-semibold">{storageData.other} ГБ</p>
+                      <p className="text-xs text-muted-foreground">Uptime</p>
+                      <p className="font-semibold">{serverData.uptime}%</p>
                     </div>
                   </div>
                 </div>
