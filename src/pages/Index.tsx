@@ -6,6 +6,9 @@ import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [selectedPlan, setSelectedPlan] = useState<any>(null);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState('tpay');
   
   const serverData = {
     totalCapacity: 200,
@@ -244,6 +247,10 @@ const Index = () => {
                 <Button 
                   className={`w-full ${plan.popular ? 'bg-primary text-white hover:bg-primary/90' : 'bg-secondary text-foreground hover:bg-secondary/80'}`}
                   size="lg"
+                  onClick={() => {
+                    setSelectedPlan(plan);
+                    setShowPaymentModal(true);
+                  }}
                 >
                   Выбрать план
                 </Button>
@@ -391,6 +398,97 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {showPaymentModal && selectedPlan && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <Card className="max-w-md w-full p-8 relative animate-fade-in">
+            <button 
+              onClick={() => setShowPaymentModal(false)}
+              className="absolute top-4 right-4 text-muted-foreground hover:text-foreground"
+            >
+              <Icon name="X" size={24} />
+            </button>
+
+            <h3 className="text-2xl font-bold mb-2">Оплата тарифа</h3>
+            <p className="text-muted-foreground mb-6">
+              {selectedPlan.name} — {selectedPlan.price} ₽/мес
+            </p>
+
+            <div className="space-y-4 mb-6">
+              <label className="block text-sm font-medium mb-3">Выберите способ оплаты</label>
+              
+              <button
+                onClick={() => setPaymentMethod('tpay')}
+                className={`w-full flex items-center gap-3 p-4 rounded-lg border-2 transition-all ${
+                  paymentMethod === 'tpay' 
+                    ? 'border-primary bg-primary/5' 
+                    : 'border-border hover:border-primary/50'
+                }`}
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold">
+                  T
+                </div>
+                <div className="text-left flex-1">
+                  <div className="font-semibold">T-Pay</div>
+                  <div className="text-xs text-muted-foreground">Быстрая оплата через T-Pay</div>
+                </div>
+                {paymentMethod === 'tpay' && <Icon name="Check" size={20} className="text-primary" />}
+              </button>
+
+              <button
+                onClick={() => setPaymentMethod('sbp')}
+                className={`w-full flex items-center gap-3 p-4 rounded-lg border-2 transition-all ${
+                  paymentMethod === 'sbp' 
+                    ? 'border-primary bg-primary/5' 
+                    : 'border-border hover:border-primary/50'
+                }`}
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center text-white font-bold text-xs">
+                  СБП
+                </div>
+                <div className="text-left flex-1">
+                  <div className="font-semibold">Система Быстрых Платежей</div>
+                  <div className="text-xs text-muted-foreground">Переводы между банками РФ</div>
+                </div>
+                {paymentMethod === 'sbp' && <Icon name="Check" size={20} className="text-primary" />}
+              </button>
+
+              <button
+                onClick={() => setPaymentMethod('mastercard')}
+                className={`w-full flex items-center gap-3 p-4 rounded-lg border-2 transition-all ${
+                  paymentMethod === 'mastercard' 
+                    ? 'border-primary bg-primary/5' 
+                    : 'border-border hover:border-primary/50'
+                }`}
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-xs">
+                  MC
+                </div>
+                <div className="text-left flex-1">
+                  <div className="font-semibold">Mastercard</div>
+                  <div className="text-xs text-muted-foreground">Оплата банковской картой</div>
+                </div>
+                {paymentMethod === 'mastercard' && <Icon name="Check" size={20} className="text-primary" />}
+              </button>
+            </div>
+
+            <Button 
+              className="w-full bg-primary text-white hover:bg-primary/90" 
+              size="lg"
+              onClick={() => {
+                alert(`Оплата ${selectedPlan.price} ₽ через ${
+                  paymentMethod === 'tpay' ? 'T-Pay' : 
+                  paymentMethod === 'sbp' ? 'СБП' : 
+                  'Mastercard'
+                }`);
+                setShowPaymentModal(false);
+              }}
+            >
+              Оплатить {selectedPlan.price} ₽
+            </Button>
+          </Card>
+        </div>
+      )}
     </div>
   );
 };
