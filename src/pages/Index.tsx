@@ -50,7 +50,7 @@ const Index = () => {
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Icon name="Cloud" size={32} className="text-primary" />
-            <span className="text-2xl font-bold text-primary">CloudStore</span>
+            <span className="text-2xl font-bold text-primary">CloudWorld</span>
           </div>
           
           <div className="hidden md:flex items-center gap-8">
@@ -271,8 +271,8 @@ const Index = () => {
                   <Icon name="Mail" size={24} className="text-primary mt-1" />
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <a href="mailto:support@cloudstore.ru" className="text-primary hover:underline">
-                      support@cloudstore.ru
+                    <a href="mailto:support@cloudworld.ru" className="text-primary hover:underline">
+                      support@cloudworld.ru
                     </a>
                   </div>
                 </div>
@@ -355,7 +355,7 @@ const Index = () => {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Icon name="Cloud" size={28} className="text-primary" />
-                <span className="text-xl font-bold">CloudStore</span>
+                <span className="text-xl font-bold">CloudWorld</span>
               </div>
               <p className="text-white/70 text-sm">
                 Надежное облачное хранилище для ваших данных
@@ -391,7 +391,7 @@ const Index = () => {
           </div>
 
           <div className="border-t border-white/10 pt-8 text-center text-sm text-white/70">
-            <p>© 2024 CloudStore. Все права защищены.</p>
+            <p>© 2024 CloudWorld. Все права защищены.</p>
           </div>
         </div>
       </footer>
