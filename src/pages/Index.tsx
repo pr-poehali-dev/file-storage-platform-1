@@ -95,7 +95,7 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mt-16">
-            <Card className="p-8 hover:shadow-lg transition-shadow">
+            <Card className="p-8 hover:shadow-xl hover:scale-105 transition-all duration-300">
               <div className="flex items-center gap-3 mb-6">
                 <Icon name="HardDrive" size={28} className="text-primary" />
                 <h2 className="text-2xl font-semibold">Использование хранилища</h2>
@@ -146,7 +146,7 @@ const Index = () => {
               </div>
             </Card>
 
-            <Card className="p-8 hover:shadow-lg transition-shadow">
+            <Card className="p-8 hover:shadow-xl hover:scale-105 transition-all duration-300">
               <div className="flex items-center gap-3 mb-6">
                 <Icon name="TrendingUp" size={28} className="text-primary" />
                 <h2 className="text-2xl font-semibold">Статистика активности</h2>
@@ -189,19 +189,19 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mt-12">
-            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
+            <Card className="p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300">
               <Icon name="Lock" size={40} className="text-primary mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-3">Безопасность</h3>
               <p className="text-muted-foreground">Шифрование данных и защита от несанкционированного доступа</p>
             </Card>
 
-            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
+            <Card className="p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300">
               <Icon name="Zap" size={40} className="text-primary mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-3">Скорость</h3>
               <p className="text-muted-foreground">Мгновенная синхронизация и быстрый доступ к файлам</p>
             </Card>
 
-            <Card className="p-6 text-center hover:shadow-lg transition-shadow">
+            <Card className="p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300">
               <Icon name="Users" size={40} className="text-primary mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-3">Совместная работа</h3>
               <p className="text-muted-foreground">Делитесь файлами и работайте с командой эффективно</p>
@@ -221,7 +221,7 @@ const Index = () => {
             {plans.map((plan, index) => (
               <Card 
                 key={index}
-                className={`p-8 relative hover:shadow-xl transition-all ${plan.popular ? 'border-2 border-primary shadow-lg scale-105' : ''}`}
+                className={`p-8 relative hover:shadow-2xl hover:scale-110 transition-all duration-300 ${plan.popular ? 'border-2 border-primary shadow-lg scale-105' : ''}`}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-semibold">
@@ -265,7 +265,7 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="p-8">
+            <Card className="p-8 hover:shadow-xl hover:scale-105 transition-all duration-300">
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <Icon name="Mail" size={24} className="text-primary mt-1" />
@@ -311,7 +311,7 @@ const Index = () => {
               </div>
             </Card>
 
-            <Card className="p-8">
+            <Card className="p-8 hover:shadow-xl hover:scale-105 transition-all duration-300">
               <form className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium mb-2">Ваше имя</label>
